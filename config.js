@@ -25,9 +25,9 @@ global.confirmCode = ""
 
 
 //💌global.pairingNumber = "" //put your bot number here💌
-global.mods = ['918127875972'] 
-global.prems = ['918127875972']
-global.allowed = ['918127875972']
+global.mods = ['919517641203'] 
+global.prems = ['919517641203']
+global.allowed = ['919517641203']
 global.keysZens = ['c2459db922', '37CC845916', '6fb0eff124']
 global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())]
 global.keysxteammm = ['29d4b59a4aa687ca', '5LTV57azwaid7dXfz5fzJu', 'cb15ed422c71a2fb', '5bd33b276d41d6b4', 'HIRO', 'kurrxd09', 'ebb6251cc00f9c63']
@@ -173,7 +173,7 @@ for (let i = 0; i < ownerlist.length; i += 2) {
         global.owner.push(owner);
     }
 }
-const defaultOwner = ["918127875972", "𝐅𝖾ᥣ𝗂𝗑", true];
+const defaultOwner = ["919517641203", "𝐅𝖾ᥣ𝗂𝗑", true];
 global.owner.push(defaultOwner);
 
 
