@@ -4,7 +4,7 @@ let handler = async m => m.reply(`
 │ 📂 https://chat.whatsapp.com/Du2HVLnxkcSJNb2Q7rO6vZ?mode=wwt
 ╰━━━━━━━━━━━━━━━━╯
 `.trim())
-handler.help = ['play']
+handler.help = ['channel']
 handler.tags = ['main']
 handler.command = ['play' ] 
 
