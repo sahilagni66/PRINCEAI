@@ -1,26 +1,32 @@
-let handler = async (m, { conn, text, participants, isAdmin, isOwner, groupMetadata }) => {
-    const botNumber = conn.user.jid;
-    const users = participants.map(u => u.id).filter(v => v !== conn.user.jid);
-    if (m.sender !== botNumber && !isOwner && !isAdmin) {
-        m.reply("🛡️ This command is only for *Group Admins*");
-        return;
-    }
+let handler = async (m, { conn, text, participants, groupMetadata }) => {
+  let users = participants.map(u => u.id).filter(v => v !== conn.user.jid)
 
-    const groupInfo = `┃💗⊹ 𝗚𝗥𝗢𝗨𝗣 : *${groupMetadata.subject}*\n\n`;
-    const membersInfo = `┃💗⊹ 𝗠𝗘𝗠𝗕𝗘𝗥𝗦 : *${participants.length}*${text ? `\n┃💗⊹ 𝗠𝗘𝗦𝗦𝗔𝗚𝗘 : ${text}\n` : ''}`;
-    const mentions = users.map(v => '┃💗⊹ @' + v.replace(/@.+/, '')).join`\n`;
-    const footer = '\n└──✪ ⚡𝑷-𝑴𝑫⚡ ┃ ᴮᴼᵀ ✪──';
+  let winter = `
+︵۫᷼⏜꯭፝֟︵ ︵۫᷼⏜꯭፝֟ ❄️•❅•❄️ ︵꯭፝֟⏜۫᷼︵ׅ︵꯭፝֟⏜۫᷼︵ׅ︵꯭፝֟⏜۫᷼︵ׅ
+      𝐖𝗂𐓣𝗍𝖾𝗋 𝚰𝗌 𝐂ⱺꭑ𝗂𐓣𝗀☃️ 
+  𝐂ⱺᥣᑯ ᑯα𝗒𝗌 𝐂ⱺᥣᑯ𝖾𝗋 𝐌𝖾ꭑⱺ𝗋𝗂𝖾𝗌
+⏝݄︶ּ፝֟⏝᷼︶֘⏝݄︶ּ፝֟⏝᷼︶֘ ❄️•❅•❄️︶᷼⏝ּ፝֟︶݄⏝⃯ׄ︶᷼⏝ּ፝֟︶݄⏝⃯ׄ  
 
-    const tagAllMessage = `${groupInfo}${membersInfo}\n\n┌───⊷ 𝗠𝗘𝗡𝗧𝗜𝗢𝗡𝗦\n${mentions}${footer}`;
+▌ ❄️ *𝐆𝗋ⱺυρ:* ${groupMetadata.subject}
+▌ ❄️ *𝐌𝖾ꭑᑲ𝖾𝗋𝗌:* ${participants.length}
+${text ? `▌ ❄️ *Message:* ${text}\n` : ""}
 
+🌨️ *𝐒𐓣ⱺω𝖿ᥣα𝗄𝖾 𝐌𝖾𐓣𝗍𝗂ⱺ𐓣* 🌨️
+───────────────────────
+${users.map(v => `━ ✦ ⃞🧊• @${v.split("@")[0]}`).join("\n")}
+───────────────────────
 
-    m.reply(tagAllMessage, null, { mentions: users });
-};
+❄️ “𝐒𐓣ⱺω𝖿ᥣα𝗄𝖾𝗌 𝖿αᥣᥣ… ᑲυ𝗍 ꭑ𝖾ꭑⱺ𝗋𝗂𝖾𝗌 𝗌𝗍α𝗒.” ❄️
+  `.trim()
 
-handler.help = ['tagall'];
-handler.tags = ['group'];
-handler.command = ['tagall', 'invo'];
-handler.admin = false; 
-handler.group = true; 
+  m.reply(winter, null, { mentions: users })
+}
 
-export default handler;
+handler.help = ['tagall']
+handler.tags = ['group']
+handler.command = ['tagall']
+handler.desc = 'Winter Theme TagAll'
+handler.admin = false
+handler.group = true
+
+export default handler
